@@ -48,8 +48,8 @@ if __name__ == '__main__':
 
     parser = create_parser()
 
-    namespace = parser.parse_args(sys.argv[1:])
-    namespace = parser.parse_args(['blabla.bla.jpg', '-w', '200', '-H', '200', '-s', '2'])
+    # namespace = parser.parse_args(sys.argv[1:])
+    # namespace = parser.parse_args(['blabla.bla.jpg', '-w', '200', '-H', '200', '-s', '2'])
     namespace = parser.parse_args(['blabla.bla.jpg', '-w', '200', '-H', '200'])
 
     image_file = namespace.file[0]
