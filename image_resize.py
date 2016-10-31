@@ -1,11 +1,13 @@
+
 import os
 import sys
 import argparse
 from PIL import Image
 
 
-def resize_image(path_to_original, path_to_result):
-    pass
+def resize_image(original_image, path_to_result, width, height):
+    out = original_image.resize((width, height))
+    out.save(path_to_result)
 
 
 def get_resolve_resize(width, height, width_original, height_original):
@@ -48,9 +50,9 @@ if __name__ == '__main__':
 
     parser = create_parser()
 
-    # namespace = parser.parse_args(sys.argv[1:])
+    namespace = parser.parse_args(sys.argv[1:])
     # namespace = parser.parse_args(['blabla.bla.jpg', '-w', '200', '-H', '200', '-s', '2'])
-    namespace = parser.parse_args(['blabla.bla.jpg', '-w', '200', '-H', '200'])
+    # namespace = parser.parse_args(['blabla.bla.jpg', '-w', '200', '-H', '200'])
 
     image_file = namespace.file[0]
 
@@ -81,3 +83,5 @@ if __name__ == '__main__':
     print(output)
     print(original_width, original_height)
     print(width, height)
+
+    resize_image(image_file, output, width, height)
